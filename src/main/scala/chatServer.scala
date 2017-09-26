@@ -33,6 +33,7 @@ class ChatServer extends Actor with ActorLogging{
       onlineClients.filter(_ != sender).foreach(_ ! msg)
   }
 }
+//run this via sbt run and choose the server program
 object ChatServerApplication extends App {
   val actorSystem = ActorSystem("ChatServer",ConfigFactory.load("server"))
   println(actorSystem.name)
