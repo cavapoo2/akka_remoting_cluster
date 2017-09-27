@@ -9,7 +9,9 @@ lazy val buildSettings = Seq(
 // Sub-project specific dependencies
 lazy val commonDeps = Seq(
  scalatest % Test,
- akka_remote
+ akka_remote,
+ akka_cluster,
+ akka_cluster_tools
 )
 lazy val root = (project in file(".")).
   //aggregate(foo,bar).
