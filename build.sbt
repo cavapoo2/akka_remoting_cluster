@@ -11,7 +11,8 @@ lazy val commonDeps = Seq(
  scalatest % Test,
  akka_remote,
  akka_cluster,
- akka_cluster_tools
+ akka_cluster_tools,
+ akka_cluster_shard
 )
 lazy val root = (project in file(".")).
   //aggregate(foo,bar).
