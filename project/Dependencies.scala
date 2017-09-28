@@ -5,4 +5,5 @@ object Dependencies {
   val akka_remote = "com.typesafe.akka" %% "akka-remote" % "2.5.3"
   val akka_cluster = "com.typesafe.akka" %% "akka-cluster" % "2.5.4"
   val akka_cluster_tools = "com.typesafe.akka" %% "akka-cluster-tools" % "2.5.4"
+  val akka_cluster_shard = "com.typesafe.akka" %% "akka-cluster-sharding" % "2.5.4"
 }
