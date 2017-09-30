@@ -59,7 +59,27 @@ object ScalingOutMaster extends App {
       }
     }
   }
-  //TODO create another jobQueue func that uses Await.result as well
-  jobQueue((1 to 100).toList)
+
+  def jobQueue2(jobs:List[Int]): Unit = {
+    implicit val timeout = Timeout(5 seconds)
+    if (!jobs.isEmpty)
+      {
+        val j = jobs.head
+        val f = masterActor ? Work(s"$j")
+        val r = Await.result(f,5 seconds)
+        r match {
+          case NoWorkers =>
+            println(s"No Workers for job $j")
+            jobQueue2(jobs)
+          case WorkersAvail =>
+            println(s"Worker avail for job $j")
+            jobQueue2(jobs.tail)
+          case _ =>
+            println("Error ?")
+        }
+      }
+  }
+ // jobQueue((1 to 100).toList)
+  jobQueue2((1 to 100).toList)
 
 }
